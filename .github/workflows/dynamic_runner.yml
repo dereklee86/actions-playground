@@ -1,3 +1,5 @@
+name: deploy
+
 on:
   workflow_dispatch:
     inputs:
@@ -9,10 +11,12 @@ on:
         - stage
         - prod
 
+run-name: Deploy to ${{ inputs.environment }}
+
 jobs:
-  my_job:
-    name: deploy to ${{ inputs.environment }}
-    runs-on: ${{ ((inputs.environment == 'dev') && 'label1' ) || ((inputs.environment == 'prod') && 'label2' ) }}
+  job1:
+    name: Deploy to ${{ inputs.environment }}
+    runs-on: ${{ ((inputs.environment == 'dev') && 'label1' ) || ((inputs.environment == 'prod') && 'label2' ) || ((inputs.environment == 'stage') && 'label1' ) }}
 
     steps:
     - name: run
