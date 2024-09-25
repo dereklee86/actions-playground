@@ -12,7 +12,7 @@ on:
 jobs:
   my_job:
     name: deploy to ${{ inputs.environment }}
-    runs-on: ${{ ((inputs.environment == "dev") && "label1" ) || ((inputs.environment == "prod") && "label2" ) }}
+    runs-on: ${{ ((inputs.environment == 'dev') && 'label1' ) || ((inputs.environment == 'prod') && 'label2' ) }}
 
     steps:
     - name: run
