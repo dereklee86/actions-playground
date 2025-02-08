@@ -16,7 +16,8 @@ jobs:
           github_token: ${{secrets.PAT}}
           workflow: artifacts.yml
           name: artifact1
-          branch: ${{ github.base_ref }}
+          pr: ${{github.event.pull_request.number}}
+          workflow_conclusion: ""
 
   check-artifact2:
     runs-on: self-hosted
@@ -28,4 +29,5 @@ jobs:
           github_token: ${{secrets.PAT}}
           workflow: artifacts.yml
           name: artifact2
-          branch: ${{ github.base_ref }}
+          pr: ${{github.event.pull_request.number}}
+          workflow_conclusion: ""
