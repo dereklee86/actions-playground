@@ -9,6 +9,12 @@ jobs:
   check-artifact1:
     runs-on: self-hosted
     steps:
+      - uses: explorium-ai/wait-github-status-action@v1.0.2
+        with:
+          name: wait
+          token: ${{ secrets.PAT }}
+          sha: ${{ github.event.pull_request.head.sha }} # Must
+
       - name: Download artifact
         id: download-artifact
         uses: dawidd6/action-download-artifact@v8
@@ -22,6 +28,12 @@ jobs:
   check-artifact2:
     runs-on: self-hosted
     steps:
+      - uses: explorium-ai/wait-github-status-action@v1.0.2
+        with:
+          name: wait
+          token: ${{ secrets.PAT }}
+          sha: ${{ github.event.pull_request.head.sha }} # Must
+
       - name: Download artifact
         id: download-artifact
         uses: dawidd6/action-download-artifact@v8
