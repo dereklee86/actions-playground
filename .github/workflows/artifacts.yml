@@ -10,6 +10,8 @@ jobs:
   artifact1:
     runs-on: self-hosted
     steps:
+      - uses: actions/checkout@v4
+
       - name: Eval artifact1
         run: exit $(cat artifact1.txt)
 
@@ -23,6 +25,8 @@ jobs:
   artifact2:
     runs-on: self-hosted
     steps:
+      - uses: actions/checkout@v4
+      
       - name: Eval artifact2
         run: exit $(cat artifact2.txt)
 
