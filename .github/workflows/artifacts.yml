@@ -14,7 +14,7 @@ jobs:
 
       - name: Eval artifact1
         run: |
-          sleep 60
+          sleep 10
           exit $(cat artifact1.txt)
 
       - name: 'Upload Artifact 1'
@@ -31,7 +31,7 @@ jobs:
       
       - name: Eval artifact2
         run: |
-          sleep 60
+          sleep 10
           exit $(cat artifact2.txt)
 
       - name: 'Upload Artifact 2'
