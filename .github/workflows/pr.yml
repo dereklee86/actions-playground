@@ -13,6 +13,7 @@ jobs:
         id: download-artifact
         uses: dawidd6/action-download-artifact@v8
         with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
           workflow: artifacts.yml
           name: artifact1
           branch: ${{ github.base_ref }}
@@ -24,6 +25,7 @@ jobs:
         id: download-artifact
         uses: dawidd6/action-download-artifact@v8
         with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
           workflow: artifacts.yml
           name: artifact2
           branch: ${{ github.base_ref }}
