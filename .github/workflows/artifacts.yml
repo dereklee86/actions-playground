@@ -2,6 +2,7 @@ name: make artifacts
 
 on:
   workflow_dispatch:
+  push:
 
 run-name: make artifacts
 
