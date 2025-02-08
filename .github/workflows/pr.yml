@@ -1,9 +1,9 @@
-name: make artifacts
+name: pr gate
 
 on:
   pull_request:
 
-run-name: make artifacts
+run-name: pr gate
 
 jobs:
   check-artifact1:
