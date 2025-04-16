@@ -17,15 +17,19 @@ jobs:
           checkName: artifact1
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Download artifact
-        id: download-artifact
-        uses: dawidd6/action-download-artifact@v8
-        with:
-          github_token: ${{secrets.PAT}}
-          workflow: artifacts.yml
-          name: artifact1
-          pr: ${{github.event.pull_request.number}}
-          workflow_conclusion: ""
+      # - name: Download artifact
+      #   id: download-artifact
+      #   uses: dawidd6/action-download-artifact@v8
+      #   with:
+      #     github_token: ${{secrets.PAT}}
+      #     workflow: artifacts.yml
+      #     name: artifact1
+      #     pr: ${{github.event.pull_request.number}}
+      #     workflow_conclusion: ""
+
+      - name: debug info
+        run:
+          echo "${{ github.event.pull_request.head.sha }}/artifact1"
 
   check-artifact2:
     runs-on: self-hosted
@@ -38,12 +42,16 @@ jobs:
           checkName: artifact2
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Download artifact
-        id: download-artifact
-        uses: dawidd6/action-download-artifact@v8
-        with:
-          github_token: ${{secrets.PAT}}
-          workflow: artifacts.yml
-          name: artifact2
-          pr: ${{github.event.pull_request.number}}
-          workflow_conclusion: ""
+      # - name: Download artifact
+      #   id: download-artifact
+      #   uses: dawidd6/action-download-artifact@v8
+      #   with:
+      #     github_token: ${{secrets.PAT}}
+      #     workflow: artifacts.yml
+      #     name: artifact2
+      #     pr: ${{github.event.pull_request.number}}
+      #     workflow_conclusion: ""
+
+      - name: debug info
+        run:
+          echo "${{ github.event.pull_request.head.sha }}/artifact2"

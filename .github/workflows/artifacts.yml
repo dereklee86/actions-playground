@@ -26,7 +26,7 @@ jobs:
 
       - name: debug info
         run:
-          echo "{{ github.ref }}/artifact1"
+          echo "${{ github.ref }}/artifact1"
 
   artifact2:
     runs-on: self-hosted
@@ -47,4 +47,4 @@ jobs:
 
       - name: debug info
         run:
-          echo "{{ github.ref }}/artifact2"
+          echo "${{ github.ref }}/artifact2"
