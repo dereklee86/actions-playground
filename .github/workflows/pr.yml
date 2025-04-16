@@ -28,7 +28,7 @@ jobs:
       #     workflow_conclusion: ""
 
       - name: debug info
-        run:
+        run: |
           full_sha=${{ github.event.pull_request.head.sha }}
           prefix=$${full_sha:0:2}
           echo "url://artifactory/mediator/coverage/$${prefix}/${{ github.event.pull_request.head.sha }}/artifact1" >> $GITHUB_STEP_SUMMARY
@@ -55,7 +55,7 @@ jobs:
       #     workflow_conclusion: ""
 
       - name: debug info
-        run:
+        run: |
           full_sha=${{ github.event.pull_request.head.sha }}
           prefix=$${full_sha:0:2}
           echo "url://artifactory/mediator/coverage/$${prefix}/${{ github.event.pull_request.head.sha }}/artifact2" >> $GITHUB_STEP_SUMMARY
