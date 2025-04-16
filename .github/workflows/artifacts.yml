@@ -27,8 +27,8 @@ jobs:
       - name: debug info
         run:
           full_sha=${{ github.sha }}
-          prefix=${full_sha:0:2}
-          echo "upload an artifact to url://artifactory/mediator/coverage/${prefix}/${{ github.sha }}/artifact1" >> $GITHUB_STEP_SUMMARY
+          prefix=$${full_sha:0:2}
+          echo "upload an artifact to url://artifactory/mediator/coverage/$${prefix}/${{ github.sha }}/artifact1" >> $GITHUB_STEP_SUMMARY
 
   artifact2:
     runs-on: self-hosted
@@ -50,5 +50,5 @@ jobs:
       - name: debug info
         run:
           full_sha=${{ github.sha }}
-          prefix=${full_sha:0:2}
-          echo "upload an artifact to url://artifactory/mediator/coverage/${prefix}/${{ github.sha }}/artifact2" >> $GITHUB_STEP_SUMMARY
+          prefix=$${full_sha:0:2}
+          echo "upload an artifact to url://artifactory/mediator/coverage/$${prefix}/${{ github.sha }}/artifact2" >> $GITHUB_STEP_SUMMARY
