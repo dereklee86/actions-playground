@@ -17,12 +17,16 @@ jobs:
           sleep 10
           exit $(cat artifact1.txt)
 
-      - name: 'Upload Artifact 1'
-        uses: actions/upload-artifact@v4
-        with:
-          name: artifact1
-          path: artifact1.txt
-          retention-days: 5
+      # - name: 'Upload Artifact 1'
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: artifact1
+      #     path: artifact1.txt
+      #     retention-days: 5
+
+      - name: debug info
+        run:
+          echo "{{ github.ref }}/artifact1"
 
   artifact2:
     runs-on: self-hosted
@@ -34,9 +38,13 @@ jobs:
           sleep 10
           exit $(cat artifact2.txt)
 
-      - name: 'Upload Artifact 2'
-        uses: actions/upload-artifact@v4
-        with:
-          name: artifact2
-          path: artifact2.txt
-          retention-days: 5
+      # - name: 'Upload Artifact 2'
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: artifact2
+      #     path: artifact2.txt
+      #     retention-days: 5
+
+      - name: debug info
+        run:
+          echo "{{ github.ref }}/artifact2"
