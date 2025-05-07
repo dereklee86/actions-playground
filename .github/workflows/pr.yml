@@ -9,25 +9,53 @@ jobs:
   check-artifact1:
     runs-on: self-hosted
     steps:
-      - name: Download artifact
-        id: download-artifact
-        uses: dawidd6/action-download-artifact@v8
+      - name: Wait for tests to succeed
+        uses: fountainhead/action-wait-for-check@v1.2.0
+        id: wait-for-build
         with:
-          github_token: ${{secrets.PAT}}
-          workflow: artifacts.yml
-          name: artifact1
-          pr: ${{github.event.pull_request.number}}
-          workflow_conclusion: ""
+          token: ${{ secrets.PAT }}
+          checkName: artifact1
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      # - name: Download artifact
+      #   id: download-artifact
+      #   uses: dawidd6/action-download-artifact@v8
+      #   with:
+      #     github_token: ${{secrets.PAT}}
+      #     workflow: artifacts.yml
+      #     name: artifact1
+      #     pr: ${{github.event.pull_request.number}}
+      #     workflow_conclusion: ""
+
+      - name: debug info
+        run: |
+          full_sha=${{ github.event.pull_request.head.sha }}
+          prefix=${full_sha:0:2}
+          echo "url://artifactory/mediator/coverage/${prefix}/${{ github.event.pull_request.head.sha }}/artifact1" >> $GITHUB_STEP_SUMMARY
 
   check-artifact2:
     runs-on: self-hosted
     steps:
-      - name: Download artifact
-        id: download-artifact
-        uses: dawidd6/action-download-artifact@v8
+      - name: Wait for tests to succeed
+        uses: fountainhead/action-wait-for-check@v1.2.0
+        id: wait-for-build
         with:
-          github_token: ${{secrets.PAT}}
-          workflow: artifacts.yml
-          name: artifact2
-          pr: ${{github.event.pull_request.number}}
-          workflow_conclusion: ""
+          token: ${{ secrets.PAT }}
+          checkName: artifact2
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      # - name: Download artifact
+      #   id: download-artifact
+      #   uses: dawidd6/action-download-artifact@v8
+      #   with:
+      #     github_token: ${{secrets.PAT}}
+      #     workflow: artifacts.yml
+      #     name: artifact2
+      #     pr: ${{github.event.pull_request.number}}
+      #     workflow_conclusion: ""
+
+      - name: debug info
+        run: |
+          full_sha=${{ github.event.pull_request.head.sha }}
+          prefix=${full_sha:0:2}
+          echo "url://artifactory/mediator/coverage/${prefix}/${{ github.event.pull_request.head.sha }}/artifact2" >> $GITHUB_STEP_SUMMARY
